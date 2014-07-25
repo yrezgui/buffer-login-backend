@@ -33,8 +33,8 @@ oauthApp.post('/', function post(req, res) {
   }).pipe(res);
 });
 
-oauthApp.listen(port, function listen() {
-    console.log('oauthApp listening on port %d', port);
+oauthApp.listen(OAUTH_PORT, function listen() {
+    console.log('oauthApp listening on port %d', OAUTH_PORT);
 });
 
 corsApp.all('*', function all(req, res) {
