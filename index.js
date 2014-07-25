@@ -10,6 +10,7 @@ var CORS_PORT         = process.env.CORS_PORT || 9292;
 var BUFFER_OAUTH_URI  = 'https://api.bufferapp.com/1/oauth2/token.json';
 
 oauthApp.use(bodyParser());
+corsApp.use(bodyParser());
 
 oauthApp.post('/', function post(req, res) {
   if(!req.body.code) {
