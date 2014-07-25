@@ -41,7 +41,12 @@ oauthApp.listen(OAUTH_PORT, function listen() {
 corsApp.all('*', function all(req, res) {
 
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+
+  // Avoid making a request to the proxy
+  if (req.method === 'OPTIONS') {
+    return res.send(200);
+  }
 
   return request({
     url: req.path.slice(1),
